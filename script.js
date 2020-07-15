@@ -8,6 +8,13 @@ var specialChar=["!","@","#","$","%","^","&","*","(",")","{","}","|","[","]",";"
 
 // Write password to the #password input
 function writePassword() {
+
+  var useLowerCase=confirm("Do you want to include lowercase characters?");
+    var useUpperCase=confirm("Do you want to include uppercase characters?");
+    var useNumeric=confirm("Do you want to include numeric characters?");
+    var useSpecial=confirm("Do you want to include special characters?");
+
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
