@@ -14,8 +14,28 @@ function writePassword() {
     var useNumeric=confirm("Do you want to include numeric characters?");
     var useSpecial=confirm("Do you want to include special characters?");
 
+    if (useLowerCase == false && useUpperCase == false && useNumeric == false && useSpecial == false) {
+      alert("Please select one type of character");
+      useLowerCase=confirm("Do you want to include lowercase characters?");
+      useUpperCase=confirm("Do you want to include uppercase characters?");
+      useNumeric=confirm("Do you want to include numeric characters?");
+      useSpecial=confirm("Do you want to include special characters?");
+    }
+  
 
-  var password = generatePassword();
+    var passwordLength=parseInt(prompt("How many characters do you want the password to be? The password cannot be less than 8 or more than 128 characters."));
+    if(passwordLength < 8 || passwordLength > 128 || typeof(passwordLength) != "number" || passwordLength === NaN || passwordLength === null) {
+        alert("Choose a number that is more than 8 and less than 128 characters");
+        passwordLength=parseInt(prompt("How many characters do you want the password to be? The password cannot be less than 8 or more than 128 characters."));
+
+        if (useLowerCase==true){
+          caseArray.push(lowerCaseChar);
+      
+      }
+    
+      }
+
+  var password = writePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
